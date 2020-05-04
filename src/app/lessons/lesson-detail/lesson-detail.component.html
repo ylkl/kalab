@@ -1,0 +1,45 @@
+<!-- lesson detail is added to the lessons component -->
+
+<video width="320" height="240" controls>
+    <source  [src]="getUrl( lesson )" type="video/mp4">
+    Your browser does not support the video tag.
+   </video> 
+<div class="row">
+    <div class="col-xs-12">
+        <img [src]="lesson.imagePath" alt="{{ lesson.name}} " class="img-responsive" style="max-height: 300px;">
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <h1>{{ lesson.name }}</h1>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="btn-group open">
+            <button type="button" class="btn btn-primary dropdown-toggle">
+                Manage Lesson <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">To Shopping</a></li>
+                <li><a href="#">Edit Recipe</a></li>
+                <li><a href="#">Delete Recipe</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-12">
+        {{ lesson.description }}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        Ingredients
+    </div>
+</div>

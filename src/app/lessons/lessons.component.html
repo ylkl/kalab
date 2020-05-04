@@ -1,0 +1,24 @@
+<div *ngIf="displayVidoeComponent">
+
+<div class="row">
+    <div class="col-md-5">
+        <app-lesson-list (lessonFromList)="selectedLesson = $event" (lessonTimeout)="onLessonTimeout()" [session]="session" ></app-lesson-list>
+    </div>
+    <div class="col-md-7"> 
+        <app-lesson-detail *ngIf="selectedLesson; else infoText" [lesson]= selectedLesson></app-lesson-detail>
+        <ng-template #infoText>
+            <p>Please select a Lesson</p>
+        </ng-template>
+
+    </div>
+</div>
+    
+</div>
+
+<div *ngIf="!displayVidoeComponent">
+    <div class="row">
+        <div class="col-md-12">
+            <app-counting (success)="onSuccess()" [rewardScore]="rewardScore"></app-counting>
+        </div>
+    </div>
+</div>

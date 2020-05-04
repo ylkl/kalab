@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-xs-10">
+        <app-shopping-edit (lessonAdded)="onLessonAdded($event)"></app-shopping-edit>
+        <hr>
+        <ul class="list-group">
+            <a class="list-group-item" style="cursor: pointer"></a>
+        </ul>
+    </div>
+</div>
+
+    <h2>Very temporary list</h2>
+    <div *ngFor="let lesson of lessons">Name: {{ lesson.name }} &nbsp; Description: {{ lesson.description }} &nbsp; Image Path: {{ lesson.imagepath}} </div>

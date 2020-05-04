@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="btn btn-success">New Lesson</div>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-xs-12">
+       
+        <app-lesson-item *ngFor="let lessonEl of lessons" [lesson]="lessonEl" (lessonSelected)="onLessonSelected(lessonEl)"  >
+
+        </app-lesson-item>
+    </div>
+</div>
+

@@ -1,0 +1,148 @@
+
+Requirement:
+    Lessons : exaample 'counting' is one lesson 
+                        'reward' will be shown after the lesson is completed
+                            videos could be a type of reward
+                            gameX could be another reward    
+
+
+        
+
+Binding Custom Properties - this allows a component's custom property to be accessed and assigned values from 
+a parent property
+	@Input() element : { type: string, name: string, content: string }  - decorate the property
+	usage  [element] = "serverElement"
+	
+		Alias custom property name
+		@Input('serverElement') element
+		usage  [serverElement] = "serverElement"
+
+EventEmitter - allows to pass data to a parent
+	@Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>()
+	
+component Communication - so important
+
+onAddServer() {
+this.serverCreated.emit({serverName: this.newServerName, serverContent: this.newServerContent} );
+---- Add the following to @Component to overide default angualr component styling
+ViewEncapsulation.none -for example 
+
+Adding a reference to an element    
+<input type="text #referrenceName">
+    pass referrenceName as in <button (click)="someMethod("referrenceName")></button>
+        - referrenceName passes the element itself
+        - example referrenceName.text the value of input in thsi case
+        - referrenceName can only be used with in the component
+        - usage someMethod(nameInput: HTMLInputElement) in the component.ts
+        - referrenceName.text  in the template
+
+ Getting all element access in typeScript using @ViewChild('theSelectorOfTheElement', {static: true}) variableBame : ElementRef;
+
+
+ Displaying content that is inserted between <component-name>something</component-name>
+    in the <component-name> template creation, add the directive <ng-content></ng-content>
+
+
+Life cycle hooks
+ngOnChanges - called after a bound input property changes (every time an input property changes)
+ngOnInit - colled once the component is initializes - after the constractor
+ngDoCheck - run multimple times - Clled during every change detection run - on every property change, on any events - say when a button is clicked or a time fired 
+ngAfterContentInit - called after content (ng-conten)  has been projected into View
+ngAfterContenctChecked - Called evry time the projected content has been ngAfterContenctChecked
+ngAfterViewInit - Called after the component's view (and child views) has been initialized
+ngAfterViewChecked - called every time the view (and the child views) have been ngAfterContenctChecked
+ngOnDestroy - called once the component is about to be destroyed  - when 
+a component run - it is added to the DOM tree. Removing a component from 
+the DOM is what we call destroy.
+
+@ContentChiled() - used to get <ng-content></ng-content>
+ Example @ContentChiled('contentParagraph', {static : true}) paragraph : ElementRef 
+            - if used inside ngOnInit() - {static : true} otherwise {static : false}
+
+            1) Extract
+
+            2) npm install in the extracted folder
+            
+            3) ng serve
+            
+            Got an error related to TypeScript thereafter? 
+            
+            Run npm install --save-dev-exact typescript@3.4.5 in the same project folder and re-try ng serve.
+            
+            -- property binding - this is binding with the DOM's properties/attriutes. Example - disabled = ""
+            just 
+            
+            
+            
+            Directives are instructions in the DOM.
+            
+            <p *ngIf="serverCreated ; else noServer" > Server was created </p>
+            
+            <ng-template #noServer>
+                No Server was created!
+            </ng-template>
+            ngStyle  - dynamically update style
+            [ngStyle]="callSomeName()" 	
+                <p [ngStyle]="{backgroundColor: getColorFromMethod()}" > Message that needs to be sytled</p>
+            [ngClass] - add or remove classes dynamically 
+                <p [ngClass]="{classname: conditionOrMethod}">
+            
+            
+            *ngFor="let seerver of servers"    -strunctural ng directive
+
+            Atrribute directive vs Structural directive
+                    can't have more than one structural directive on an element
+                        structural directives such as *ngIf can be put on any element   
+                            <div *ngIf="onlyOdd">do something </div>
+                            <div *ngIf="!onlyOdd"> do something else</div>
+                            <li *ngFor="let lesson of lessons" > {{ lesson }}</li>
+                attribute directive ngClass --- square brackets [ngClass] means we are binding to some property on ngClass directive
+                <li *ngFor="let lesson of lessons" [ngClass]="{className: condition }" [ngStyle]="{backgroundColor: condition}" > {{ lesson }}</li> 
+                <li *ngFor="let lesson of lessons" [ngClass]="{className: lesson === 'adding' }"   [ngStyle]="{backgroundColor: lesson === 'subtracting'} > {{ lesson }}</li> 
+
+                <!-- Acc:1938851 Unit 220 = 1,422.74 --ok
+                Acc:1935279 Unit 2007 = 1,497.19 --- ok
+                Acc:1938331 Unit 712 = 1,064.33 -- ok
+                Acc:1933498 Unit 117 = 0
+                Acc:1939669 Unit 826 = 1433.76 --- ok
+                Acc:1941285 Unit 305 = 1,327.74
+                Total: 6745.76 -->
+
+
+                35-99-82-74-37
+
+                routing
+                054001220
+
+
+                how to use appBasicHighlight
+
+                <p appBasicHighlight > accessing elements using self created directives this way is not best practice because Angular could render your 
+                    templates without a DOM and the directives may not be available    </p>
+
+                    ng g d better-highlight ---  generate directive command
+                
+
+                    BAH - Flexibility
+                    empower.bah.com 
+                    reduce-work-schedule to a minimum of 20 hours a week ---problem is you are reducing your salary
+                    20 day military leave
+                    3-days  + 2 days if you travel for breavement 
+                    beempowered.bah.com 
+
+                    --- directives on native elements vs on <ng-template></ng-template> the following are equivalent
+                    <div *ngIf="!onlyOdd"></div>  and <ng-remplatre [ngIf]="!onlyOdd"></ng-remplatre>
+
+                    --- custom structural directives example unless -- meaning apply when condition is false
+
+                    --- ngSwitch example
+                    ts file  value = 10;
+                    template file  <div [ngSwitch]="value">
+                        <p *ngSwitchCase="5">Value is 5</p>
+                        <p *ngSwitchCase="7">Value is 7</p>
+                        <p *ngSwitchCase="10">Value is 10</p>
+                        <p *ngSwitchDefault>Value is Default</p>
+
+                    </div>
+
+--- Angular deployment

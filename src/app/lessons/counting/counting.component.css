@@ -1,0 +1,81 @@
+.dot {
+    height: 100px;
+    width: 100px;
+   border-radius: 50%;
+    display: inline-block;
+}
+
+.dot.more {
+        background-color: #00bfff;
+    
+}
+.square {
+  height: 100px;
+  width: 100px;
+  background-color: #008000;
+  border-radius: 50%;
+    display: inline-block;
+}
+
+.square.more {
+    background-color: #00bfff;
+
+}
+
+.db {
+  display: inline-block;
+
+}
+
+.oval {
+  height: 50px;
+  width: 100px;
+  background-color: #000080;
+  border-radius: 50%;
+
+}
+
+.keep-in-line {
+    display: inline-block;
+}
+
+.btn-primary {
+  background-color: black;
+}
+
+.btn-success {
+  background-color: red;
+}
+
+.btn-info {
+  background-color: blue;
+}
+
+.btn-warning {
+  background-color: orange;
+}
+
+.btn-danger {
+  background-color: yellow;
+}
+
+.black {
+  background-color: black;
+}
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
