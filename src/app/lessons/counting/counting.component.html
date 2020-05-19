@@ -12,43 +12,45 @@
 <!-- <span *ngFor="let user of balls" class='oval db'>  </span>  -->
 <!-- <span *ngFor="let user of balls" [ngClass]="'oval db'"> -->
 
-<div style="vertical-align: middle;">
+<div class="row">
 
-  <span style="font: 40px bold;">{{balls.length}} </span>
-</div>
-<div style="margin: 10px;" *ngFor="let user of balls" [ngClass]="getClassName()">
-</div>
-
-<hr>
-<div>
-  <div class="row">
-    <div class="col-xs-3">
-      <div class="btn-group" role="group">
-        <button type="button" class="btn btn-default btn-lg" (click)="addBalls()">
-          <span class="glyphicon glyphicon-plus"></span> Add
-        </button>
-        <button type="button" class="btn btn-default btn-lg" (click)="subtractBalls()">
-          <span class="glyphicon glyphicon-minus"></span> Subtract
-        </button>
-
-      </div>
-
+  <div class="col-xs-3">
+    <div style="vertical-align: middle;">
+      <span style="font: 60px bold;">{{balls.length}} </span>
     </div>
-    <div class="col-xs-5">
-      <div class="btn-group" role="group" aria-label="...">
-        <button type="button" class="btn btn-primary btn-lg" (click)="changeColor($event)">Black</button>
-        <button type="button" class="btn btn-success btn-lg" (click)="changeColor($event)">Red</button>
-        <button type="button" class="btn btn-info btn-lg" (click)="changeColor($event)"> Blue</button>
-        <button type="button" class="btn btn-warning btn-lg" (click)="changeColor($event)">Orange</button>
-        <button type="button" class="btn btn-danger btn-lg" (click)="changeColor($event)"><span
-            style="color: black">Yellow</span></button>
-      </div>
+  </div>
+
+  <div class="col-xs-9">
+
+    <div style="margin: 10px;" *ngFor="let user of balls" [ngClass]="getClassName()">
     </div>
-    <div class="col-xs-2">
-      Color: <input type="text" [(ngModel)]="color" (input)="changeColorWithInput($event)" />
+    <hr>
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-default btn-lg" (click)="addBalls()">
+        <span class="glyphicon glyphicon-plus"></span> Add
+      </button>
+      <button type="button" class="btn btn-default btn-lg" (click)="subtractBalls()">
+        <span class="glyphicon glyphicon-minus"></span> Subtract
+      </button>
     </div>
 
-    <!-- adding counts is commented out for now. The following functionality will generate the number of balls per
+    <hr>
+
+    <div class="btn-group" role="group" aria-label="...">
+      <button type="button" class="btn btn-primary btn-lg" (click)="changeColor($event)">Black</button>
+      <button type="button" class="btn btn-success btn-lg" (click)="changeColor($event)">Red</button>
+      <button type="button" class="btn btn-info btn-lg" (click)="changeColor($event)"> Blue</button>
+      <button type="button" class="btn btn-warning btn-lg" (click)="changeColor($event)">Orange</button>
+      <button type="button" class="btn btn-danger btn-lg" (click)="changeColor($event)"><span
+          style="color: black">Yellow</span></button>
+    </div>
+
+  <hr>
+  <div class="col-xs-2">
+    Color: <input type="text" [(ngModel)]="color" (input)="changeColorWithInput($event)" />
+  </div>
+
+   <!-- adding counts is commented out for now. The following functionality will generate the number of balls per
     the typed number -->
     <!-- <div class="col-xs-1">
       Number: <input type="text" [(ngModel)]="multipleInput"
@@ -58,5 +60,5 @@
       <input type="button" value="Clear" (click)="clear()" />
     </div> -->
 
+
   </div>
-</div>

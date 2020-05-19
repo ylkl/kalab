@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { DragDropModule} from '@angular/cdk/drag-drop';
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -15,6 +17,9 @@ import { BetterHighlightDirective } from './better-highlight/better-highlight.di
 import { UnlessDirective } from './unless.directive';
 import { AdditionComponent } from './addition/addition.component';
 import { CountingComponent } from './lessons/counting/counting.component';
+import { DropdownDirective } from './shared/dropdown.directive';
+import { DragDropComponent } from './drag-drop/drag-drop.component';
+import { LoggingService } from './logging.service';
 
 @NgModule({
   declarations: [
@@ -30,13 +35,16 @@ import { CountingComponent } from './lessons/counting/counting.component';
     BetterHighlightDirective,
     UnlessDirective,
     AdditionComponent,
-    CountingComponent
+    CountingComponent,
+    DropdownDirective,
+    DragDropComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    DragDropModule
   ],
-  providers: [],
+  providers: [LoggingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

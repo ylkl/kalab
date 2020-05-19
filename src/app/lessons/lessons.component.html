@@ -1,3 +1,8 @@
+
+
+
+
+
 <div *ngIf="displayVidoeComponent">
 
 <div class="row">
@@ -14,11 +19,18 @@
 </div>
     
 </div>
-
+<!-- 
 <div *ngIf="!displayVidoeComponent">
     <div class="row">
         <div class="col-md-12">
             <app-counting (success)="onSuccess()" [rewardScore]="rewardScore"></app-counting>
         </div>
     </div>
+</div> -->
+
+<div *ngIf="!displayVidoeComponent">
+
+    <app-drag-drop (isAllAnswered)="onSuccess()"></app-drag-drop>
+
+
 </div>

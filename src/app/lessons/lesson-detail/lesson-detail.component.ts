@@ -17,7 +17,7 @@ export class LessonDetailComponent implements OnInit, DoCheck {
   }
 
   getUrl (item : any) {
-        return item.name;
+        return item.imagePath + '.mp4' + '#t=0.1';
   }
 
   ngDoCheck() {

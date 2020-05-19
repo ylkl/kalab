@@ -27,4 +27,14 @@ export class LessonItemComponent implements OnInit {
     this.lessonSelected.emit();
   }
 
+//   getUrl (item : any) {
+//     return item.name + '#t=0.1';
+// }
+
+getImagePath(lesson : Lesson) {
+  console.log('lesson.imagePath: ' , lesson.imagePath);
+  return lesson.imagePath + ".jpg";
+  //return "../assets/LearnwithLittleBabyBumThingsThatGoFastNurseryRhymesforBabiesSongsforKids.jpg"
+}
+
 }

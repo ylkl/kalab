@@ -1,4 +1,4 @@
-import { Directive } from '@angular/core';
+import { Directive, ElementRef, HostListener, HostBinding } from '@angular/core';
 
 
 @Directive ({
@@ -7,6 +7,11 @@ import { Directive } from '@angular/core';
     
 )
 export class DropdownDirective {
+    
+    @HostBinding('class.open') isOpen = false;
+      
+    @HostListener('click') toggleOpen() {
+        this.isOpen = !this.isOpen;
+    }
 
-    //listens  add a certain css class or removes it - basically toggles
 }

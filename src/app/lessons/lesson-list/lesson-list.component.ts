@@ -21,10 +21,15 @@ export class LessonListComponent implements OnInit {
   @Input() session : {seconds: number};
   @Output() lessonTimeout = new EventEmitter<boolean>();
 
+  // this.name = name;
+  // this.description = desc;
+  // this.imagePath = imagePath;
+
+  // new Lesson("HappyFridayRequestAcceptedBestofASMRJERUSALEMGymChalkCompilation","HappyFridayRequestAcceptedBestofASMRJERUSALEMGymChalkCompilation. ", "HappyFridayRequestAcceptedBestofASMRJERUSALEMGymChalkCompilation."),
+  // new Lesson("LearnwithLittleBabyBumThingsThatGoFastNurseryRhymesforBabiesSongsforKids","LearnwithLittleBabyBumThingsThatGoFastNurseryRhymesforBabiesSongsforKids ", "LearnwithLittleBabyBumThingsThatGoFastNurseryRhymesforBabiesSongsforKids")    
   lessons : Lesson[] = [
-    new Lesson("../assets/ccc.mp4", "This is the description of the lesson ", "https://kalabelias.com/img/people/aba/aba_2.jpg"),
-    new Lesson("../assets/ddd.mp4", "This is the description of the lesson ", "https://kalabelias.com/img/animal/penguin/penguin_2.jpg"),
-    new Lesson("some other lesson", "This is the description of the lesson ", "https://kalabelias.com/img/people/aba/aba_2.jpg")
+    new Lesson("HappyFridayRequestAcceptedBestofASMRJERUSALEMGymChalkCompilation","HappyFridayRequestAcceptedBestofASMRJERUSALEMGymChalkCompilation. ", "../assets/HappyFridayRequestAcceptedBestofASMRJERUSALEMGymChalkCompilation."),
+    new Lesson("LearnwithLittleBabyBumThingsThatGoFastNurseryRhymesforBabiesSongsforKids","LearnwithLittleBabyBumThingsThatGoFastNurseryRhymesforBabiesSongsforKids ", "../assets/LearnwithLittleBabyBumThingsThatGoFastNurseryRhymesforBabiesSongsforKids")    
   ];
 
   

@@ -5,8 +5,7 @@ Requirement:
                             videos could be a type of reward
                             gameX could be another reward    
 
-
-        
+       
 
 Binding Custom Properties - this allows a component's custom property to be accessed and assigned values from 
 a parent property
@@ -146,3 +145,27 @@ the DOM is what we call destroy.
                     </div>
 
 --- Angular deployment
+
+--- Service
+                is just a TypeScript class
+                To use a class as a service, 1. Crearte the LoggingService.service.ts class, 2. import it, 3. add providers:[LoggingService], 4. Add  private logiignService: LoggingSercice in th constru
+                () -- that is all
+
+Hierarchical Injector 
+                    AppModule (tto all) -> AppComponent(for all components [not App component] but not for other services) -> AnyOtherComponent(the component and all its child compponents)
+                    To inject a service within service, add @Injectable() at the service class
+
+
+
+--- routing 
+                Steps: 1 in app module, add const for the routing
+                            const appRoutes: Routes = [{path: '', component : HomeComponent}]
+                            Routes = [{path: 'users', component : UserComponent}]
+                            Routes = [{path: 'servers', component : ServersComponent}]
+                        2. import {Routes, RouterModule } from '@angualr/core'
+                        3. imports: [RouterModule.forRoot(appRoutes)]
+                    4. use it as <a routerLink="/servers">Servers</a>
+                        for the home page <li class="active" ><a routerLink="/">Home</a></li>
+            Note: a relative path appends to the current path - wherever you are .  
+                        That is if <a routerLink="/servers">Servers</a> is added inside the servers. html it is not relative but 
+                        if <a routerLink="servers">Servers</a> is added on to servers.html it is relative and resolves as localhost:/8080/servers/servers

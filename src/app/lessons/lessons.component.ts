@@ -10,8 +10,8 @@ export class LessonsComponent implements OnInit {
 
   selectedLesson : Lesson;
   displayVidoeComponent: boolean = false;
-  rewardScore : any = {point : 10};
-  session : any = {seconds: 1*60};
+  rewardScore : any = {point : 1};
+  session : any = {seconds: 5*60};
 
   
   constructor() { }
