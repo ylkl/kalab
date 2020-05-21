@@ -163,9 +163,14 @@ Hierarchical Injector
                             Routes = [{path: 'users', component : UserComponent}]
                             Routes = [{path: 'servers', component : ServersComponent}]
                         2. import {Routes, RouterModule } from '@angualr/core'
-                        3. imports: [RouterModule.forRoot(appRoutes)]
+                        3. imports: [RouterModule.forRoot(appRo utes)]
                     4. use it as <a routerLink="/servers">Servers</a>
                         for the home page <li class="active" ><a routerLink="/">Home</a></li>
             Note: a relative path appends to the current path - wherever you are .  
                         That is if <a routerLink="/servers">Servers</a> is added inside the servers. html it is not relative but 
                         if <a routerLink="servers">Servers</a> is added on to servers.html it is relative and resolves as localhost:/8080/servers/servers
+                        <a routerLink="./servers">Servers</a> is the same as <a routerLink="servers">Servers</a>
+            to show active routes add the directive routerLinkActive="active"
+            example: <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" ><a routerLink="/">Home</a></li><a routerLink="servers" routerLinkActive="active">Servers</a>
+                    //[routerLinkActiveOptions]="{exact: true} is added on the / home router link only
+                -- routing from within TypeScript -> we can inject Router to the component and call the router.navigate method

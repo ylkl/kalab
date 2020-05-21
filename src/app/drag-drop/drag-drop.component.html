@@ -1,35 +1,38 @@
-<span *ngFor="let q of questions; index as f">
-
-    <div class="drag-drop-container">
-
-        <div class="drag-drop-list" cdkDropList #a="cdkDropList" [cdkDropListData]="questions[f]"
-            [cdkDropListConnectedTo]="ids[f]" (cdkDropListDropped)="drop($event)">
-            <div *ngFor="let item of questions[f]" cdkDrag class="drag-drop-box"> {{item}} </div>
-        </div>
-    </div>
-
-</span>
-<div class="col-xs-12">
-    <img [src]="currentDraggableItem.imagePath" alt="" class="img-responsive" style="max-height: 255px;">
-</div>
-<hr>
-
-<div>
-    <span *ngFor="let a of answers; index as j">
-        <div class="drag-drop-container">
-            <h3>&nbsp;&nbsp;&nbsp;&nbsp; </h3>
-            <div class="drag-drop-list" cdkDropList [id]="ids[j]" [cdkDropListData]="answers[j]"
-                [cdkDropListConnectedTo]="[]" (cdkDropListDropped)="drop($event)">
-                <div *ngFor="let item of answers[j]" cdkDrag class="drag-drop-box">{{item}} </div>
+<div style="text-align: center;">
+    <span *ngFor="let q of questions; index as f">
+        <div class="question-drag-drop-container">
+            <div *ngIf="f === randomId ">
+                <div cdkDropList>
+                    <div cdkDrag class="drag-drop-box"> {{randomQuestion}} </div>
+                </div>
+            </div>
+            <div #showAllQuestions cdkDropList #a="cdkDropList" [cdkDropListData]="questions[f]"
+                [cdkDropListConnectedTo]="ids[f]" (cdkDropListDropped)="drop($event)">
+                <div *ngFor="let item of questions[f]" cdkDrag class="drag-drop-box"> {{item}} </div>
             </div>
         </div>
-    </span>
-</div>
-<div>
-    </div>
-            <div [hidden]="hideNextButton">
-    <button type="button" (click)="nextDraggableItem()" class="btn btn-primary btn-lg">
-        <span class="glyphicon glyphicon-forward" aria-hidden="true"></span> Next
-    </button>
-</div>
 
+    </span>
+    <div>
+        <img [src]="currentDraggableItem.imagePath" alt="" style="max-height: 200px;">
+    </div>
+
+    <div>
+        <span *ngFor="let a of answers; index as j">
+            <div class="answer-drag-drop-container">
+                <h3>&nbsp;&nbsp;&nbsp;&nbsp; </h3>
+                <div class="drag-drop-list" cdkDropList [id]="ids[j]" [cdkDropListData]="answers[j]"
+                    [cdkDropListConnectedTo]="[]" (cdkDropListDropped)="drop($event)">
+                    <div *ngFor="let item of answers[j]" cdkDrag class="drag-drop-box">{{item}} </div>
+                </div>
+            </div>
+        </span>
+    </div>
+    <div>
+    </div>
+    <div [hidden]="hideNextButton" class="next-button">
+        <button type="button" (click)="nextDraggableItem()" class="btn btn-primary btn-lg">
+            <span class="glyphicon glyphicon-forward" aria-hidden="true"></span> Next
+        </button>
+    </div>
+</div>
