@@ -159,9 +159,12 @@ Hierarchical Injector
 
 --- routing 
                 Steps: 1 in app module, add const for the routing
-                            const appRoutes: Routes = [{path: '', component : HomeComponent}]
-                            Routes = [{path: 'users', component : UserComponent}]
-                            Routes = [{path: 'servers', component : ServersComponent}]
+                            const appRoutes: Routes = [
+                            {path: '', component : HomeComponent}
+                            {path: 'users', component : UserComponent},
+                            {path: 'users/:id/:name', component : UserComponent},   //note :id/:name tells angular that those are dynamic parameters
+                            {path: 'servers', component : ServersComponent}
+                            ]
                         2. import {Routes, RouterModule } from '@angualr/core'
                         3. imports: [RouterModule.forRoot(appRo utes)]
                     4. use it as <a routerLink="/servers">Servers</a>
@@ -173,4 +176,80 @@ Hierarchical Injector
             to show active routes add the directive routerLinkActive="active"
             example: <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" ><a routerLink="/">Home</a></li><a routerLink="servers" routerLinkActive="active">Servers</a>
                     //[routerLinkActiveOptions]="{exact: true} is added on the / home router link only
+                    also inject ActivatedRoute to get the current route location
                 -- routing from within TypeScript -> we can inject Router to the component and call the router.navigate method
+                   use the router.navigate(['/servers']) method
+                   this.rounter.nvavigate(['servers'], {relativeTo: this.route}) // note router and route are injected in the constructor
+                --getting dynamic variables in the component   
+                        {path: 'users/:id/:name', component : UserComponent}
+                            1. inject ActivatedRoute in the constructor
+                            2. on inInit () {
+                                this.user = {
+                                    id:  this.activatedRoute.snapshot.params['id'],
+                                    name: this.activatedRoute.snapshot.params['name']
+                                }
+                            }
+                            Angular doesn't re-render a component if we link from the same page - se we need to add observables
+
+                            on inInit () {
+                                this.user = {
+                                    id:  this.activatedRoute.snapshot.params['id'],
+                                    name: this.activatedRoute.snapshot.params['name']
+                                }
+                            }
+                             on inInit () {
+                             
+                                 this.paramsSubscription = this.activatedRoute.params.subscribe(
+                                        (params: Params) => {
+                                            this.user.id = params['id'];
+                                            this.user.name = params['name'];
+                                        }
+                                    )
+                                    name: this.activatedRoute.snapshot.params['name']
+                                }
+                            }
+
+                        -- unsubscibe what you subscribed although Angular destroys the subscription from memory when the component is destroyed 
+                           good practice though is to implement ngOnDestroy
+
+                           onOnDestroy () {
+                               this.paramsSubscription.unsubscribe();  //helps if you do your own observables
+                           }
+
+                        --- passing query parameters like ?mode=editings#loading   on the url and how to retrieve them
+                        {path: '', component : HomeComponent}
+                            {path: 'users', component : UserComponent},
+                            {path: 'users/:id/:name', component : UserComponent},   //note :id/:name tells angular that those are dynamic parameters
+                            {path: 'servers', component : ServersComponent}
+                            {path: 'servers/:id/edit', component : EditServersComponent} /servers/10/edit
+                            <a  [routerLink]="['servers',5, 'edit']"
+                                [queryParams]="{allowEdit: '1'}"
+                                fragment="locadking"
+                             href="#"></a>  gives /servers/10/edit?allowEdit=1#loading
+                                programatically
+                                    onLoadServer(id) {
+
+                                    }
+                            --- accessing query params without observables
+                                    this.activatedRoute.snapshot.queryParams
+                                    this.activatedRoute.snapshot.fragment
+                                            with observables
+                                            this.activatedRoute.queryParams.subscribe()
+                                            this.activatedRoute.fragment.subscribe()                          
+
+--- nested routes   
+{path: 'users', component : UserComponent}, children :[{path: ':id/:name', component : UserComponent} ]
+{path: 'servers', component : ServersComponent, children : [{path: ':id/edit', component : EditServersComponent}, {path: 'id', component : ServersComponent}]}
+{path: 'not-found', component: NotFoundComponent}
+{path : '**', redirectTo : '/not-found' }
+ /servers/10/edit
+
+
+                            
+
+
+                            The map() method creates a new array populated with the results of calling a provided method
+
+
+
+

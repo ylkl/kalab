@@ -4,30 +4,45 @@ import {
 } from '@angular/cdk/drag-drop';
 import { LoggingService } from '../logging.service';
 import { stringify } from 'querystring';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
   selector: 'app-drag-drop',
   templateUrl: './drag-drop.component.html',
+
   styleUrls: ['./drag-drop.component.css']
 })
 export class DragDropComponent implements OnInit {
 
-  constructor(private logger: LoggingService) {
+  constructor(private logger: LoggingService , private route: ActivatedRoute) {
 
 
   }
   @Input() draggableItems: { question: string, imagePath: string }[] =
     [
 
-      { question: 'cat', imagePath: '../assets/cat.jpg' },
-      { question: 'bat', imagePath: '../assets/bat.jpg' },
-      { question: 'cow', imagePath: '../assets/cow.jpg' },
-      { question: 'dog', imagePath: '../assets/dog.jpg' },
-      { question: 'fox', imagePath: '../assets/fox.jpg' },
-      { question: 'lion', imagePath: '../assets/lion.jpg' },
-
-
+      //{ question: 'cat', imagePath: '../assets/cat.jpg' },      
+      //{ question: 'bat', imagePath: '../assets/bat.jpg' },
+      //{ question: 'cow', imagePath: '../assets/cow.jpg' },
+      //{ question: 'dog', imagePath: '../assets/dog.jpg' },
+      //{ question: 'fox', imagePath: '../assets/fox.jpg' },
+      //{ question: 'lion', imagePath: '../assets/lion.jpg' },
+      //{ question: 'owl', imagePath: 'https://kalabelias.com/img/animal/owl/owl_3.jpg' },
+      //{ question: 'pig', imagePath: 'https://kalabelias.com/img/animal/pig/pig_2.jpg' },
+      //{ question: 'aba', imagePath: 'https://kalabelias.com/img/people/aba/aba_1.jpg' },
+      //{ question: 'mama', imagePath: 'https://kalabelias.com/img/people/mama/mama_2.jpg' },
+      //{ question: 'yael', imagePath: 'https://kalabelias.com/img/people/yael/yael_3.jpg' },
+      //{ question: 'kalab', imagePath: 'https://kalabelias.com/img/people/kalab/kalab_2.jpg' },
+      { question: 'plate', imagePath: '../assets/plate.jpg' },
+      { question: 'spoon', imagePath: '../assets/spoon.jpg' },
+      { question: 'bus', imagePath: '../assets/bus.png' },
+      { question: 'water', imagePath: '../assets/water.jpg' },
+      { question: 'rice', imagePath: '../assets/rice.jpg' },
+      { question: 'monkey', imagePath: '../assets/monkey.jpg' },
+      { question: 'apple', imagePath: '../assets/apple.jpg' },
+      { question: 'car', imagePath: '../assets/car.jpg' },
+      
     ];
 
   @Output() isAllAnswered = new EventEmitter<boolean>();
@@ -44,6 +59,7 @@ export class DragDropComponent implements OnInit {
 
   ngOnInit(): void {
 
+    console.log('ACtive route: ', this.route);
     this.setCurrentDraggableItem();
   }
 

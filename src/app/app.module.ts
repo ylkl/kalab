@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DragDropModule} from '@angular/cdk/drag-drop';
+import { Routes, RouterModule } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
@@ -20,6 +21,8 @@ import { CountingComponent } from './lessons/counting/counting.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { DragDropComponent } from './drag-drop/drag-drop.component';
 import { LoggingService } from './logging.service';
+
+const appRoutes: Routes =[{path: 'shopinglist', component: ShoppingListComponent}];
 
 @NgModule({
   declarations: [
@@ -42,7 +45,8 @@ import { LoggingService } from './logging.service';
   imports: [
     BrowserModule,
     FormsModule,
-    DragDropModule
+    DragDropModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [LoggingService],
   bootstrap: [AppComponent]
