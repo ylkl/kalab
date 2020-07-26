@@ -1,8 +1,41 @@
-<app-header (feature)="onFeatureSelect($event)"></app-header>
-<div class="container">
-<div class="row"> 
-  <app-lessons *ngIf="feature === 'lessons'" ></app-lessons>
-  <!-- <app-shopping-list *ngIf="feature === 'shopping'"></app-shopping-list> -->
-</div>
 
-</div>
+<!--  app-header emits an event called 'feature'. We are binding with feature event which runs onFeatureSelect() method on app.component.ts. onFeatureSelect() simply sets the 
+feature we want to display for example lessons or shopping list. -->
+
+<!--  for now comment out app-header and replace with router-outlet
+<app-header (feature)="onFeatureSelect($event)"></app-header>
+-->
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+      <div class="nvbar-header">
+          <a href="#" class="navbar-brand">Kalab Elias</a>
+      </div>
+
+      <div class="navbar-default">
+          <ul class="nav navbar-nav">
+            <li><a routerLink="/">Home</a></li>
+              <!-- <li><a href="#" (click)="onSelect('lessons')">Lessons</a></li> -->
+              <li><a routerLink="/lessons">Lessons</a></li>
+              <!-- <li><a href="#" (click)="onSelect('shopping')">Shopping List</a></li> -->
+              <li><a routerLink="/shopinglist">Shopping List</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown" appDropdown>
+                  <a href="#" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                      <li><a href="#">Save Data</a></li>
+                      <li><a href="#">Fetch Data</a></li>
+                  </ul>
+              </li>
+          </ul>
+      </div>
+  </div>
+
+
+</nav>  
+
+<router-outlet></router-outlet>
+
+
+

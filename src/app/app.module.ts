@@ -22,7 +22,13 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { DragDropComponent } from './drag-drop/drag-drop.component';
 import { LoggingService } from './logging.service';
 
-const appRoutes: Routes =[{path: 'shopinglist', component: ShoppingListComponent}];
+const appRoutes: Routes =[
+  {path: '', component: HeaderComponent },
+  {path: 'shopinglist', component: ShoppingListComponent},
+  {path: 'lessons', component: LessonsComponent}
+
+
+];
 
 @NgModule({
   declarations: [

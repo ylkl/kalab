@@ -22,18 +22,28 @@ export class DragDropComponent implements OnInit {
   @Input() draggableItems: { question: string, imagePath: string }[] =
     [
 
-      //{ question: 'cat', imagePath: '../assets/cat.jpg' },      
-      //{ question: 'bat', imagePath: '../assets/bat.jpg' },
-      //{ question: 'cow', imagePath: '../assets/cow.jpg' },
-      //{ question: 'dog', imagePath: '../assets/dog.jpg' },
-      //{ question: 'fox', imagePath: '../assets/fox.jpg' },
-      //{ question: 'lion', imagePath: '../assets/lion.jpg' },
+      { question: 'socks', imagePath: '../assets/socks.jpg' },
+      { question: 'phone', imagePath: '../assets/phone.jpg' },
+      { question: 'underwear', imagePath: '../assets/underwear.jpg' },
+      { question: 'shorts', imagePath: '../assets/shorts.jpg' },
+      { question: 't-shirt', imagePath: '../assets/t-shirt.jpg' },
+      { question: 'bowl', imagePath: '../assets/bowl.jpg' },
+      { question: 'floss', imagePath: '../assets/floss.jpg' },
+      { question: 'fliker', imagePath: '../assets/fliker.jpg' },
+      { question: 'cat', imagePath: '../assets/cat.jpg' },      
+      { question: 'bat', imagePath: '../assets/bat.jpg' },
+      { question: 'cow', imagePath: '../assets/cow.jpg' },
+      { question: 'dog', imagePath: '../assets/dog.jpg' },
+      { question: 'fox', imagePath: '../assets/fox.jpg' },
+      { question: 'lion', imagePath: '../assets/lion.jpg' },
       //{ question: 'owl', imagePath: 'https://kalabelias.com/img/animal/owl/owl_3.jpg' },
       //{ question: 'pig', imagePath: 'https://kalabelias.com/img/animal/pig/pig_2.jpg' },
-      //{ question: 'aba', imagePath: 'https://kalabelias.com/img/people/aba/aba_1.jpg' },
-      //{ question: 'mama', imagePath: 'https://kalabelias.com/img/people/mama/mama_2.jpg' },
-      //{ question: 'yael', imagePath: 'https://kalabelias.com/img/people/yael/yael_3.jpg' },
-      //{ question: 'kalab', imagePath: 'https://kalabelias.com/img/people/kalab/kalab_2.jpg' },
+      { question: 'yael', imagePath: '../assets/yael.jpg' },
+       { question: 'aba', imagePath: '../assets/aba.jpg' },
+       { question: 'edna', imagePath: '../assets/edna.jpg' },
+      // { question: 'mama', imagePath: 'https://kalabelias.com/img/people/mama/mama_2.jpg' },
+      
+      // { question: 'kalab', imagePath: 'https://kalabelias.com/img/people/kalab/kalab_2.jpg' },
       { question: 'plate', imagePath: '../assets/plate.jpg' },
       { question: 'spoon', imagePath: '../assets/spoon.jpg' },
       { question: 'bus', imagePath: '../assets/bus.png' },
@@ -42,13 +52,19 @@ export class DragDropComponent implements OnInit {
       { question: 'monkey', imagePath: '../assets/monkey.jpg' },
       { question: 'apple', imagePath: '../assets/apple.jpg' },
       { question: 'car', imagePath: '../assets/car.jpg' },
+      { question: 'jacket', imagePath: '../assets/jacket.jpg' },
+      { question: 'shoes', imagePath: '../assets/shoes.jpg' },      
+      { question: 'fork', imagePath: '../assets/fork.jpg' },
+      { question: 'microwave', imagePath: '../assets/microwave.jpg' },
+      { question: 'fridge', imagePath: '../assets/fridge.jpg' },
+
       
     ];
 
   @Output() isAllAnswered = new EventEmitter<boolean>();
 
 
-  questions: any[] = [];  //current Set of questions
+  questions: any[] = [];  //current Set of questions  
   answers: any[] = [];
   ids: string[] = [];
   currentDraggableItem: { question: string, imagePath: string } = null;
