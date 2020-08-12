@@ -14,11 +14,11 @@ feature we want to display for example lessons or shopping list. -->
 
       <div class="navbar-default">
           <ul class="nav navbar-nav">
-            <li><a routerLink="/">Home</a></li>
+            <li routerLinkActive="active" [routerLinkActiveOptions]="{exact : true}" ><a routerLink="/">Home</a></li>
               <!-- <li><a href="#" (click)="onSelect('lessons')">Lessons</a></li> -->
-              <li><a routerLink="/lessons">Lessons</a></li>
+              <li  routerLinkActive="active" ><a routerLink="./lessons">Lessons</a></li>
               <!-- <li><a href="#" (click)="onSelect('shopping')">Shopping List</a></li> -->
-              <li><a routerLink="/shopinglist">Shopping List</a></li>
+              <li  routerLinkActive="active"><a routerLink="/shopinglist">Shopping List</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
               <li class="dropdown" appDropdown>

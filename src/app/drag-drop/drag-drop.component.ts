@@ -22,6 +22,10 @@ export class DragDropComponent implements OnInit {
   @Input() draggableItems: { question: string, imagePath: string }[] =
     [
 
+      { question: 'pot', imagePath: '../assets/pot.jpg' },
+      { question: 'knife', imagePath: '../assets/knife.jpg' },
+      { question: 'bed', imagePath: '../assets/bed.jpg' },
+      { question: 'ladle', imagePath: '../assets/ladle.jpg' },
       { question: 'socks', imagePath: '../assets/socks.jpg' },
       { question: 'phone', imagePath: '../assets/phone.jpg' },
       { question: 'underwear', imagePath: '../assets/underwear.jpg' },
@@ -37,7 +41,7 @@ export class DragDropComponent implements OnInit {
       { question: 'fox', imagePath: '../assets/fox.jpg' },
       { question: 'lion', imagePath: '../assets/lion.jpg' },
       //{ question: 'owl', imagePath: 'https://kalabelias.com/img/animal/owl/owl_3.jpg' },
-      //{ question: 'pig', imagePath: 'https://kalabelias.com/img/animal/pig/pig_2.jpg' },
+      { question: 'pig', imagePath: '../assets/pig.jpg' },
       { question: 'yael', imagePath: '../assets/yael.jpg' },
        { question: 'aba', imagePath: '../assets/aba.jpg' },
        { question: 'edna', imagePath: '../assets/edna.jpg' },
@@ -57,10 +61,13 @@ export class DragDropComponent implements OnInit {
       { question: 'fork', imagePath: '../assets/fork.jpg' },
       { question: 'microwave', imagePath: '../assets/microwave.jpg' },
       { question: 'fridge', imagePath: '../assets/fridge.jpg' },
+      { question: 'orange', imagePath: '../assets/orange.jpg' },
 
       
     ];
 
+
+  /** emits isAllAnswered is after all the drag and drops is completed */
   @Output() isAllAnswered = new EventEmitter<boolean>();
 
 

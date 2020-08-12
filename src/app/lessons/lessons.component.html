@@ -2,9 +2,11 @@
 <div *ngIf="displayVidoeComponent">
 
 <div class="row">
+    <!-- Left side navigation, for lessons list -->
     <div class="col-md-5">
         <app-lesson-list (lessonFromList)="selectedLesson = $event" (lessonTimeout)="onLessonTimeout()" [session]="session" ></app-lesson-list>
     </div>
+    <!-- Right side for lesson detail -->
     <div class="col-md-7"> 
         <app-lesson-detail *ngIf="selectedLesson; else infoText" [lesson]= selectedLesson></app-lesson-detail>
         <ng-template #infoText>
@@ -25,8 +27,10 @@
 </div> -->
 
 <div *ngIf="!displayVidoeComponent">
- 
-    <app-drag-drop (isAllAnswered)="onSuccess()"></app-drag-drop>
+    <!-- the onSuccess() method on app-drag-drop's parent compaonent which in this case is lessons component is called  is emmitted by app-drag-drop -->
+    <!-- <app-drag-drop (isAllAnswered)="onSuccess()"></app-drag-drop> -->
+    <app-drag-drop (isAllAnswered)="onLessonTimeout()"></app-drag-drop>
+
 
 
 </div>

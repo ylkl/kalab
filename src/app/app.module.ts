@@ -25,7 +25,8 @@ import { LoggingService } from './logging.service';
 const appRoutes: Routes =[
   {path: '', component: HeaderComponent },
   {path: 'shopinglist', component: ShoppingListComponent},
-  {path: 'lessons', component: LessonsComponent}
+  {path: 'lessons', component: LessonsComponent},
+  {path: 'lessonlist', component: LessonListComponent}
 
 
 ];
