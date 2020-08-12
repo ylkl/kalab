@@ -24,6 +24,7 @@ export class DragDropComponent implements OnInit {
 
       { question: 'pot', imagePath: '../assets/pot.jpg' },
       { question: 'knife', imagePath: '../assets/knife.jpg' },
+      { question: 'chair', imagePath: '../assets/chair.jpg' },
       { question: 'bed', imagePath: '../assets/bed.jpg' },
       { question: 'ladle', imagePath: '../assets/ladle.jpg' },
       { question: 'socks', imagePath: '../assets/socks.jpg' },
