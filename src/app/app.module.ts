@@ -53,7 +53,7 @@ const appRoutes: Routes =[
     BrowserModule,
     FormsModule,
     DragDropModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' })
   ],
   providers: [LoggingService],
   bootstrap: [AppComponent]
